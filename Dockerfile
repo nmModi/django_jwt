@@ -11,4 +11,4 @@ COPY . /code/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-CMD ["gunicorn", "acvee_backend.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "django_jwt.wsgi:application", "--bind", "0.0.0.0:8000"]
