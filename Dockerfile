@@ -13,9 +13,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # install psycopg2 dependencies
-RUN apt-get update && apt-get install -y apt-utils && apt-get install -y curl
-RUN apt-get update && apt-get -y install python3-gi python3-gi-cairo gir1.2-gtk-3.0\
-    libgirepository1.0-dev gcc libcairo2-dev pkg-config python3-dev
+RUN apt-get update && apt-get install -y apt-utils && apt-get install -y curl python3-dev
 
 
 # lint
@@ -26,7 +24,7 @@ RUN apt-get update && apt-get -y install python3-gi python3-gi-cairo gir1.2-gtk-
 
 # install dependencies
 COPY ./requirements.txt .
-RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r ./requirements.txt
+RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requirements.txt
 
 
 #########
