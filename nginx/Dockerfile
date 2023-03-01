@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim AS builder
 
-ENV NGINX_VERSION 1.18.0
+ENV NGINX_VERSION 1.19.0
 
 RUN apt-get update && \
     apt-get install -y \
@@ -30,10 +30,10 @@ RUN git clone https://github.com/TeslaGov/ngx-http-auth-jwt-module.git /tmp/ngx-
     make modules
 
 
-FROM nginx:1.18.0
+FROM nginx:1.19.0
 
 RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY nginx.conf /etc/nginx/conf.d
 
 COPY --from=builder /tmp/nginx-${NGINX_VERSION}/objs/* /etc/nginx/modules/
 
