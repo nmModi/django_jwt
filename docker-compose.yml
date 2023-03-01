@@ -26,7 +26,7 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     volumes:
-      - nginx_volume:/etc/nginx/conf.d
+      - /etc/nginx/conf.d:/etc/nginx/conf.d
       - static_volume:/home/app/web/static
       - media_volume:/home/app/web/media
     ports:
