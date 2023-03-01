@@ -2,9 +2,6 @@ FROM debian:bullseye-slim AS builder
 
 ENV NGINX_VERSION 1.19.0
 
-RUN rm /etc/nginx/conf.d/default.conf
-COPY ./nginx.conf /etc/nginx/conf.d
-
 RUN apt-get update && \
     apt-get install -y \
     build-essential \
