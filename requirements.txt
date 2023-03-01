@@ -2,3 +2,4 @@ django
 djangorestframework
 djangorestframework
 djangorestframework-simplejwt
+gunicorn
