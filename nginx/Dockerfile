@@ -29,11 +29,11 @@ RUN git clone https://github.com/TeslaGov/ngx-http-auth-jwt-module.git /tmp/ngx-
     ./configure --add-module=/tmp/ngx-http-auth-jwt-module && \
     make modules
 
-RUN rm /etc/nginx/conf.d/default.conf
-COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
-
 
 FROM nginx:1.19.0
+
+RUN rm /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
 
 COPY --from=builder /tmp/nginx-${NGINX_VERSION}/objs/* /etc/nginx/modules/
 
