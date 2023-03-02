@@ -39,3 +39,4 @@ volumes:
   static_volume:
   media_volume:
   nginx_volume:
+  nginx:
