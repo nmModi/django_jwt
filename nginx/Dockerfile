@@ -36,5 +36,5 @@ COPY --from=builder /tmp/nginx-${NGINX_VERSION}/objs/* /etc/nginx/modules/
 
 COPY --from=builder /usr/local/lib/* /lib/x86_64-linux-gnu/
 
-RUN rm /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
